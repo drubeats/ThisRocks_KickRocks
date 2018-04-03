@@ -1,0 +1,35 @@
+<p id="notice"><%= notice %></p>
+<br>
+<br>
+<style>
+.center {
+    margin: auto;
+    width: auto;
+
+    padding: 10px;
+}
+</style>
+<div class= "center">
+<p>
+ <strong> Name: </strong>
+ <%= @band.name %>
+</p>
+
+<p>
+ <strong> Description: </strong>
+ <%= @band.description %>
+</p>
+
+<p>
+ <!-- <strong>Pictureleft:</strong> -->
+ <%#= @band.pictureLeft %>
+ <%#= image_tag(@band.pictureLeft_url, width: 300) if @band.pictureLeft.present? %><%#= image_tag(@band.pictureRight_url, width: 300) if @band.pictureRight.present? %>
+ <!-- <strong>Pictureright:</strong> -->
+ <%#= @band.pictureRight %>
+
+ <%= link_to like_path(id: @band.id) do %><%= image_tag(@band.pictureLeft_url, width: 320) if @band.pictureLeft.present? %><% end %><%= link_to dislike_path(id: @band.id) do %><%= image_tag(@band.pictureRight_url, width: 320) if @band.pictureRight.present? %><% end %>
+</p>
+
+<%= link_to 'Edit', edit_band_path(@band) %> |
+<%= link_to 'Back', bands_path %>
+</div>
