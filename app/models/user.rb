@@ -9,5 +9,5 @@ class User < ApplicationRecord
       user.image = auth["info"]["image"]
     end
   end
-
+  # Note:  I should have used Devise instead of omniauth gem, I only used omniauth to learn it.
 end

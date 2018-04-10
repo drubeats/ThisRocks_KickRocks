@@ -28,7 +28,8 @@ class BandsController < ApplicationController
       # redirect_back fallback_location: index
       # redirect_to bands_path
       band_id = (@band.id + 1).to_i
-
+ # This line will break code if a band is ever destroyed.  Because
+ #  The Show page is based off the Band ID,  will send to a page that doesn't exist
 # (defined? Band.find(band_id))
 
       if Band.exists?(band_id)
@@ -86,6 +87,9 @@ class BandsController < ApplicationController
 
   # DELETE /bands/1
   # DELETE /bands/1.json
+  # Once again the destroy method will break how the app runs because it will error out the
+  # redirect_to band_path(band_id) method
+
   def destroy
     @band.destroy
     respond_to do |format|
